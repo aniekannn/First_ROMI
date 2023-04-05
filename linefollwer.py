@@ -12,4 +12,4 @@ class LineFollower:
         left_data = self.left_sensor.get()
         right_data = self.right_sensor.get()
 
-    # logic and motor setting
+    # logic and motor setting.
