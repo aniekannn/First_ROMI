@@ -1,7 +1,7 @@
 import wpilib
 import os
-from wpilib import TimedRobot, Joystick, Spark
-from wpilib.drive import DifferentialDrive
+from wpilib import TimedRobot, Joystick
+from drivetrain import Drivetrain
 
 
 class MyRobot(TimedRobot):
@@ -9,9 +9,7 @@ class MyRobot(TimedRobot):
     def robotInit(self):
         '''This method is called as the robot turns on and is often used to setup the joysticks and other presets.'''
         self.controller = Joystick(0)
-        self.left_motor = Spark(0)
-        self.right_motor = Spark(1)
-        self.drivetrain = DifferentialDrive(self.right_motor, self.left_motor)
+        self.drivetrain = Drivetrain()
 
     def robotPeriodic(self):
         '''This is called every cycle of the code. In general the code is loop
@@ -21,26 +19,23 @@ class MyRobot(TimedRobot):
 
     def autonomousInit(self):
         '''This is called once when the robot enters autonomous mode.'''
-
-    1
-    pass
+        pass
 
     def autonomousPeriodic(self):
         '''This is called every cycle while the robot is in autonomous.'''
-
-    pass
+        pass
 
     def teleopInit(self):
         '''This is called once at the start of Teleop.'''
-
-    pass
+        pass
 
     def teleopPeriodic(self):
         '''This is called once every cycle during Teleop'''
         forward = self.controller.getRawAxis(0)
         rotate = self.controller.getRawAxis(1)
-        self.drivetrain.arcadeDrive(forward, rotate)
-    pass
+        self.drivetrain.move(forward, rotate)
+        print(forward)
+
     ### There are other methods that you can overwrite for when the robot is
     # disabled, or when the robot is in Test mode.
 
