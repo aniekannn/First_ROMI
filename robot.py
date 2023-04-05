@@ -33,7 +33,7 @@ class MyRobot(TimedRobot):
         '''This is called once every cycle during Teleop'''
         forward = self.controller.getRawAxis(0)
         rotate = self.controller.getRawAxis(1)
-        self.drivetrain.move(forward, rotate)
+        self.drivetrain.move(forward,rotate)
         print(forward)
 
     ### There are other methods that you can overwrite for when the robot is
